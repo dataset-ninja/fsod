@@ -9,7 +9,7 @@ Object detection finds extensive applications across various fields. However, cu
 
 The authors endeavor to tackle the challenge of few-shot object detection. Their objective is to detect all foreground objects belonging to a specific target object category in a test set, given only a limited number of support set images depicting the target object. In pursuit of this goal, the authors present two significant contributions. Firstly, they introduce a comprehensive few-shot detection model capable of detecting novel objects without necessitating re-training or fine-tuning. Their approach leverages the matching relationship between pairs of objects within a siamese network across multiple network stages. Experimental results demonstrate that the model benefits from an attention module in the early stages, enhancing proposal quality, and a multi-relation module in the later stages, effectively suppressing and filtering out false detections in complex backgrounds. Secondly, for model training, the authors curate a large, meticulously annotated dataset comprising 1000 categories, each with a few examples. This dataset fosters broad learning in object detection.
 
-<img src="https://github.com/dataset-ninja/fsod/assets/120389559/d93290f1-90a0-4258-89f4-d5a7056b8e55" alt="image" width="800">
+<img src="https://github.com/dataset-ninja/fsod/assets/120389559/d2cc1af4-e7a0-4802-8cb8-99c6d1bd2a04" alt="image" width="800">
 
 <span style="font-size: smaller; font-style: italic;">Given different objects as supports, the authors approach can detect all objects with same categories in the given query image.</span>
 
@@ -30,7 +30,19 @@ In summary, the authors curated a dataset encompassing 1000 categories with dist
 
 The dataset is specifically designed for few-shot learning and intrinsically designed to evaluate the generality of a model on novel categories. The authors dataset contains 1000 categories with 800/200 split for training and test set separately, around 66,000 images and 182,000 bounding boxes in total. The dataset has the following attributes.
 
-<img src="https://github.com/dataset-ninja/fsod/assets/120389559/bbfe6dc0-69d1-4ec1-a9e5-548571fd2b1f" alt="image" width="800">
+|               | Train | Test  |
+|---------------|-------|-------|
+| No. Class     | 800   | 200   |
+| No. Image     | 52350 | 14152 |
+| No. Box       | 147489| 35102 |
+| Avg No. Box / Img | 2.82 | 2.48 |
+| Min No. Img / Cls | 22  | 30  |
+| Max No. Img / Cls | 208 | 199 |
+| Avg No. Img / Cls | 75.65 | 74.31 |
+| Box Size      | [6, 6828] | [13, 4605] |
+| Box Area Ratio| [0.0009, 1] | [0.0009, 1] |
+| Box W/H Ratio | [0.0216, 89] | [0.0199, 51.5] |
+
 
 <span style="font-size: smaller; font-style: italic;">Given different objects as supports, the authors approach can detect all objects with same categories in the given query image.</span>
 
@@ -38,4 +50,4 @@ The dataset has the following attributes:
 
 * **Extensive category diversity:** The dataset boasts a wide range of semantic categories, encompassing 83 overarching parent semantics such as mammals, clothing, and weaponry, further branching out into 1000 distinct leaf categories. The rigorous dataset split implemented by the authors ensures that the semantic categories in the train and test sets are markedly dissimilar, posing a significant challenge for model evaluation.
 
-* **Demanding evaluation conditions:** Evaluation of models on this dataset presents formidable challenges. Notably, objects exhibit considerable variation in box size and aspect ratios. Moreover, a substantial portion of the test set, comprising 26.5% of images, features three or more objects. It's pertinent to highlight that the test set includes numerous bounding boxes representing categories not included in our label system, adding an additional layer of complexity to the evaluation process.
+* **Demanding evaluation conditions:** Evaluation of models on this dataset presents formidable challenges. Notably, objects exhibit considerable variation in box size and aspect ratios. Moreover, a substantial portion of the test set, comprising 26.5% of images, features three or more objects. It's pertinent to highlight that the test set includes numerous bounding boxes representing categories not included in label system, adding an additional layer of complexity to the evaluation process.
